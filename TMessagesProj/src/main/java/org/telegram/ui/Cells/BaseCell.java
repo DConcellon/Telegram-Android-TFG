@@ -14,6 +14,14 @@ import android.view.HapticFeedbackConstants;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
+import android.os.Build;
+import android.text.TextUtils;
+import android.util.AttributeSet;
+import android.view.View;
+import android.view.accessibility.AccessibilityEvent;
+import android.view.accessibility.AccessibilityNodeInfo;
+
+import org.telegram.messenger.R;
 
 public abstract class BaseCell extends ViewGroup {
 
@@ -50,6 +58,8 @@ public abstract class BaseCell extends ViewGroup {
     public BaseCell(Context context) {
         super(context);
         setWillNotDraw(false);
+        //Se marcan los elementos como focusable.
+        setFocusable(true);
     }
 
     public static void setDrawableBounds(Drawable drawable, int x, int y) {

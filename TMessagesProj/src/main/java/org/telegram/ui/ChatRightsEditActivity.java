@@ -294,7 +294,7 @@ public class ChatRightsEditActivity extends BaseFragment {
 
         if (canEdit) {
             ActionBarMenu menu = actionBar.createMenu();
-            menu.addItemWithWidth(done_button, R.drawable.ic_done, AndroidUtilities.dp(56));
+            menu.addItemWithWidth(done_button, R.drawable.ic_done, AndroidUtilities.dp(56), LocaleController.getString("Done", R.string.Done));
         }
 
         fragmentView = new FrameLayout(context);

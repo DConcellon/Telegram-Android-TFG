@@ -18,6 +18,7 @@ import android.text.TextUtils;
 import android.text.style.URLSpan;
 import android.view.MotionEvent;
 import android.view.SoundEffectConstants;
+import android.view.accessibility.AccessibilityNodeInfo;
 
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.ImageReceiver;
@@ -565,5 +566,13 @@ public class ChatActionCell extends BaseCell {
             textLayout.draw(canvas);
             canvas.restore();
         }
+    }
+
+    //Se inicializa la accesibilidad. Los mensajes se podrán seleccionar como elementos.
+    @Override
+    public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo info) {
+        super.onInitializeAccessibilityNodeInfo(info);
+        info.setText(!TextUtils.isEmpty(customText) ? customText : currentMessageObject.messageText);
+        info.setEnabled(true);
     }
 }

@@ -509,6 +509,7 @@ public class ContactsActivity extends BaseFragment implements NotificationCenter
             floatingButtonContainer = new FrameLayout(context);
             frameLayout.addView(floatingButtonContainer, LayoutHelper.createFrame((Build.VERSION.SDK_INT >= 21 ? 56 : 60) + 20, (Build.VERSION.SDK_INT >= 21 ? 56 : 60) + 14, (LocaleController.isRTL ? Gravity.LEFT : Gravity.RIGHT) | Gravity.BOTTOM, LocaleController.isRTL ? 4 : 0, 0, LocaleController.isRTL ? 0 : 4, 0));
             floatingButtonContainer.setOnClickListener(v -> presentFragment(new NewContactActivity()));
+            floatingButtonContainer.setContentDescription(LocaleController.getString("CreateNewContact", R.string.CreateNewContact));
 
             floatingButton = new ImageView(context);
             floatingButton.setScaleType(ImageView.ScaleType.CENTER);

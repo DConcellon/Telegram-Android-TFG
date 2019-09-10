@@ -169,6 +169,8 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
     private boolean allowSwitchAccount;
     private boolean checkCanWrite;
 
+    private MenuDrawable menuDrawable;
+
     private DialogsActivityDelegate delegate;
 
     public interface DialogsActivityDelegate {
@@ -390,7 +392,8 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
             if (searchString != null) {
                 actionBar.setBackButtonImage(R.drawable.ic_ab_back);
             } else {
-                actionBar.setBackButtonDrawable(new MenuDrawable());
+                actionBar.setBackButtonDrawable(menuDrawable = new MenuDrawable());
+                actionBar.setBackButtonContentDescription(LocaleController.getString("MenuNavDescr", R.string.MenuNavDescr));
             }
             if (BuildVars.DEBUG_VERSION) {
                 actionBar.setTitle("Telegram Beta"/*LocaleController.getString("AppNameBeta", R.string.AppNameBeta)*/);
@@ -1067,7 +1070,7 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
             });
         }
         floatingButtonContainer.addView(floatingButton, LayoutHelper.createFrame((Build.VERSION.SDK_INT >= 21 ? 56 : 60), (Build.VERSION.SDK_INT >= 21 ? 56 : 60), Gravity.LEFT | Gravity.TOP, 10, 0, 10, 0));
-
+        floatingButtonContainer.setContentDescription(LocaleController.getString("NewMessageTitle", R.string.NewMessageTitle));
         /*unreadFloatingButtonContainer = new FrameLayout(context);
         if (onlySelect) {
             unreadFloatingButtonContainer.setVisibility(View.GONE);

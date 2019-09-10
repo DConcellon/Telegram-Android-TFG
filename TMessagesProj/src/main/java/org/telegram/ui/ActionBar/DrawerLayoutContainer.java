@@ -31,6 +31,8 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 
+import android.view.accessibility.AccessibilityEvent;
+
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.BuildVars;
 import org.telegram.messenger.FileLog;
@@ -90,6 +92,8 @@ public class DrawerLayoutContainer extends FrameLayout {
         }
 
         shadowLeft = getResources().getDrawable(R.drawable.menu_shadow);
+
+        setFocusable(true);
     }
 
     @SuppressLint("NewApi")
@@ -220,6 +224,13 @@ public class DrawerLayoutContainer extends FrameLayout {
                 ((ListView) drawerLayout).setSelectionFromTop(0, 0);
             }
         }
+            for (int i = 0; i < getChildCount(); i++) {
+                View child = getChildAt(i);
+                if (child != drawerLayout) {
+                    child.setImportantForAccessibility(opened ? View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS : View.IMPORTANT_FOR_ACCESSIBILITY_AUTO);
+                }
+            }
+        sendAccessibilityEvent(AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED);
     }
 
     private void setScrimOpacity(float value) {
