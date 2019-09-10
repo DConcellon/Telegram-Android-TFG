@@ -388,7 +388,7 @@ public class ChatUsersActivity extends BaseFragment implements NotificationCente
             searchItem.setVisibility(selectType == 0 && participants.isEmpty() ? View.GONE : View.VISIBLE);
 
             if (type == TYPE_KICKED) {
-                doneItem = menu.addItemWithWidth(done_button, R.drawable.ic_done, AndroidUtilities.dp(56));
+                doneItem = menu.addItemWithWidth(done_button, R.drawable.ic_done, AndroidUtilities.dp(56), LocaleController.getString("Done", R.string.Done));
             }
         }
 

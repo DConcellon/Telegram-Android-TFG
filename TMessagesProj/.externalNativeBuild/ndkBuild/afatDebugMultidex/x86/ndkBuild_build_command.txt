@@ -1,14 +1,14 @@
 Executable : /Users/dconcellon/Library/Android/sdk/ndk-bundle/ndk-build
 arguments : 
 NDK_PROJECT_PATH=null
-APP_BUILD_SCRIPT=/Users/dconcellon/Documents/GitHub/Telegram-Android/TMessagesProj/jni/Android.mk
-NDK_APPLICATION_MK=/Users/dconcellon/Documents/GitHub/Telegram-Android/TMessagesProj/jni/Application.mk
+APP_BUILD_SCRIPT=/Users/dconcellon/Documents/Telegram-Android-TFG/TMessagesProj/jni/Android.mk
+NDK_APPLICATION_MK=/Users/dconcellon/Documents/Telegram-Android-TFG/TMessagesProj/jni/Application.mk
 APP_ABI=x86
 NDK_ALL_ABIS=x86
 NDK_DEBUG=1
 APP_PLATFORM=android-16
-NDK_OUT=/Users/dconcellon/Documents/GitHub/Telegram-Android/TMessagesProj/build/intermediates/ndkBuild/afat/debugMultidex/obj
-NDK_LIBS_OUT=/Users/dconcellon/Documents/GitHub/Telegram-Android/TMessagesProj/build/intermediates/ndkBuild/afat/debugMultidex/lib
+NDK_OUT=/Users/dconcellon/Documents/Telegram-Android-TFG/TMessagesProj/build/intermediates/ndkBuild/afat/debugMultidex/obj
+NDK_LIBS_OUT=/Users/dconcellon/Documents/Telegram-Android-TFG/TMessagesProj/build/intermediates/ndkBuild/afat/debugMultidex/lib
 NDK_APPLICATION_MK:=jni/Application.mk
 APP_PLATFORM:=android-16
 -j8

@@ -8244,4 +8244,5 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
     public int getLayoutHeight() {
         return layoutHeight;
     }
+
 }

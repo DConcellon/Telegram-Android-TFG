@@ -747,6 +747,7 @@ public class ChatActivityEnterView extends FrameLayout implements NotificationCe
         emojiButton.setColorFilter(new PorterDuffColorFilter(Theme.getColor(Theme.key_chat_messagePanelIcons), PorterDuff.Mode.MULTIPLY));
         emojiButton.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         emojiButton.setPadding(0, AndroidUtilities.dp(1), 0, 0);
+        emojiButton.setContentDescription(LocaleController.getString("EmoticonoDescr", R.string.EmoticonoDescr));
 //        if (Build.VERSION.SDK_INT >= 21) {
 //            emojiButton.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.INPUT_FIELD_SELECTOR_COLOR));
 //        }
@@ -1046,6 +1047,7 @@ public class ChatActivityEnterView extends FrameLayout implements NotificationCe
 //                attachButton.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.INPUT_FIELD_SELECTOR_COLOR));
 //            }
             attachLayout.addView(attachButton, LayoutHelper.createLinear(48, 48));
+            attachButton.setContentDescription(LocaleController.getString("AdjuntarDescr", R.string.AdjuntarDescr));
             attachButton.setOnClickListener(v -> delegate.didPressedAttachButton());
         }
 

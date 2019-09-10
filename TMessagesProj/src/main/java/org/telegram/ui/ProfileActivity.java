@@ -2834,6 +2834,13 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
             item = menu.addItem(10, R.drawable.ic_ab_other);
         }
         item.addSubItem(add_shortcut, LocaleController.getString("AddShortcut", R.string.AddShortcut));
+        item.setContentDescription(LocaleController.getString("MasOpDescr", R.string.MasOpDescr));
+        if (editItem != null) {
+            editItem.setContentDescription(LocaleController.getString("Edit", R.string.Edit));
+        }
+        if (callItem != null) {
+            callItem.setContentDescription(LocaleController.getString("Call", R.string.Call));
+        }
     }
 
     @Override

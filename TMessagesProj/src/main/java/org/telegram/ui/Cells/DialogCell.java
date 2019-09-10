@@ -19,6 +19,8 @@ import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
+import android.view.accessibility.AccessibilityEvent;
+import android.view.accessibility.AccessibilityNodeInfo;
 
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.PhoneFormat.PhoneFormat;
@@ -76,6 +78,7 @@ public class DialogCell extends BaseCell {
     private int index;
     private int dialogsType;
     private int messageId;
+    private int currentDialogFolderId;
 
     private ImageReceiver avatarImage = new ImageReceiver(this);
     private AvatarDrawable avatarDrawable = new AvatarDrawable();
@@ -836,6 +839,12 @@ public class DialogCell extends BaseCell {
             FileLog.e(e);
         }
 
+        //Set string for Accessibility events to speak contact list
+        //setTextAccessibility(nameString+" "+getResources().getString(R.string.LastMessageString+": "+messageString);
+        //setTextAccessibility(nameString+"último mensaje: " +messageString);
+
+
+
         double widthpx;
         float left;
         if (LocaleController.isRTL) {
@@ -1207,5 +1216,62 @@ public class DialogCell extends BaseCell {
     @Override
     public boolean hasOverlappingRendering() {
         return false;
+    }
+
+    //Se inicializa la accesibilidad del menú inicial
+    @Override
+    public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo info) {
+        super.onInitializeAccessibilityNodeInfo(info);
+        //Se añaden las acciones de aceso y de opciones (doble pulsación)
+        info.addAction(AccessibilityNodeInfo.ACTION_CLICK);
+        info.addAction(AccessibilityNodeInfo.ACTION_LONG_CLICK);
+    }
+
+    //Se llena la información del evento de pulsación
+    @Override
+    public void onPopulateAccessibilityEvent(AccessibilityEvent event) {
+        super.onPopulateAccessibilityEvent(event);
+        StringBuilder lector = new StringBuilder();
+        //Se verifica si es un canal o un grupo, en caso de no ser un usuario.
+        if (chat != null) {
+            if (chat.broadcast) {
+                lector.append(LocaleController.getString("CanalDescr", R.string.CanalDescr));
+            } else {
+                lector.append(LocaleController.getString("GrupoDescr", R.string.GrupoDescr));
+            }
+            lector.append(". ");
+            lector.append(chat.title);
+            lector.append(". ");
+        } else if (user != null) {
+            //Si es un bot, se añade la etiqueta "bot"
+            if (user.bot) {
+                lector.append(LocaleController.getString("Bot", R.string.Bot));
+                lector.append(".");
+            }
+            //Se añade el nombre del contacto
+            lector.append(ContactsController.formatName(user.first_name, user.last_name));
+            lector.append(". ");
+        }
+        //Numero de mensajes sin leer
+        if (unreadCount > 0) {
+            lector.append(LocaleController.formatPluralString("NewMessages", unreadCount));
+            lector.append(". ");
+        }
+
+        //Se añade la fecha en caso de existir un mensaje
+        int ultimaFecha = lastMessageDate;
+        if (lastMessageDate == 0 && message != null) {
+            ultimaFecha = message.messageOwner.date;
+        }
+
+        if (message.isOut()) {
+            lector.append(LocaleController.formatString("EnviadoDescr", R.string.EnviadoDescr, LocaleController.formatDateAudio(ultimaFecha)));
+        } else {
+            lector.append(LocaleController.formatString("RecibidoDescr", R.string.RecibidoDescr, LocaleController.formatDateAudio(ultimaFecha)));
+        }
+        lector.append(". ");
+        //Se añade el mensaje recibido
+        lector.append(message.messageText);
+        event.setContentDescription(lector.toString());
     }
 }

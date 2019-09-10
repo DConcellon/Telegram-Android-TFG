@@ -28,6 +28,7 @@ import android.widget.TextView;
 
 import org.telegram.PhoneFormat.PhoneFormat;
 import org.telegram.messenger.AndroidUtilities;
+import org.telegram.messenger.LocaleController;
 import org.telegram.messenger.UserObject;
 import org.telegram.messenger.FileLog;
 import org.telegram.messenger.R;
@@ -85,11 +86,14 @@ public class DrawerProfileCell extends FrameLayout {
 
         arrowView = new ImageView(context);
         arrowView.setScaleType(ImageView.ScaleType.CENTER);
+        arrowView.setContentDescription(accountsShowed ? LocaleController.getString("OcultarCuentaDescr", R.string.OcultarCuentaDescr) : LocaleController.getString("MostrarCuentaDescr", R.string.MostrarCuentaDescr));
         addView(arrowView, LayoutHelper.createFrame(59, 59, Gravity.RIGHT | Gravity.BOTTOM));
 
         if (Theme.getEventType() == 0) {
             snowflakesEffect = new SnowflakesEffect();
         }
+
+        setFocusable(true);
     }
 
     @Override
@@ -170,6 +174,7 @@ public class DrawerProfileCell extends FrameLayout {
         arrowView.setOnClickListener(v -> {
             accountsShowed = !accountsShowed;
             arrowView.setImageResource(accountsShowed ? R.drawable.collapse_up : R.drawable.collapse_down);
+            arrowView.setContentDescription(accountsShowed ? LocaleController.getString("OcultarCuentaDescr", R.string.OcultarCuentaDescr) : LocaleController.getString("MostrarCuentaDescr", R.string.MostrarCuentaDescr));
             onClickListener.onClick(DrawerProfileCell.this);
         });
     }

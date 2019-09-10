@@ -672,7 +672,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
         if (ViewCompat.getImportantForAccessibility(this)
                 == ViewCompat.IMPORTANT_FOR_ACCESSIBILITY_AUTO) {
             ViewCompat.setImportantForAccessibility(this,
-                    ViewCompat.IMPORTANT_FOR_ACCESSIBILITY_YES);
+                  ViewCompat.IMPORTANT_FOR_ACCESSIBILITY_YES);
         }
         mAccessibilityManager = (AccessibilityManager) getContext()
                 .getSystemService(Context.ACCESSIBILITY_SERVICE);

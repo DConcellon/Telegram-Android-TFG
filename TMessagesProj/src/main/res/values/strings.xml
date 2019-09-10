@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="AppName">Telegram</string>
+    <string name="AppName">Telegram Beta DC</string>
     <string name="AppNameBeta">Telegram Beta</string>
     <string name="LanguageName">English</string>
     <string name="English">English</string>
@@ -748,6 +748,7 @@
     <string name="MapPreviewProviderYandex">Yandex</string>
     <string name="MapPreviewProviderNobody">No previews</string>
     <string name="InstallGoogleMaps">Install Google Maps?</string>
+    <string name="ArchivedChats">Archived Chats</string>
     <!--notification-->
     <string name="MessageLifetimeChanged">%1$s set the self-destruct timer to %2$s</string>
     <string name="MessageLifetimeChangedOutgoing">You set the self-destruct timer to %1$s</string>
@@ -2545,4 +2546,19 @@
     <string name="formatterDay12H">h:mm a</string>
     <string name="formatDateAtTime">%1$s at %2$s</string>
     <string name="formatDateScheduleDay">EEE MMM d</string>
+
+    <string name="GrupoDescr">Grupo</string>
+    <string name="CanalDescr">Canal</string>
+    <string name="ChatSecretoDescr">Chat secreto</string>
+    <string name="EnviadoDescr">Enviado %s</string>
+    <string name="RecibidoDescr">Recibido %s</string>
+    <string name="VolverDescr">Volver atrás</string>
+    <string name="MenuNavDescr">Abrir menú de navegación</string>
+    <string name="MasOpDescr">Más opciones</string>
+    <string name="EmoticonoDescr">Emojis, stickers, y GIFs</string>
+    <string name="AdjuntarDescr">Adjuntar archivos</string>
+    <string name="MostrarCuentaDescr">Mostrar cuentas</string>
+    <string name="OcultarCuentaDescr">Ocultar cuentas</string>
+    <string name="LeidoDescr">Leído</string>
+    <string name="NoLeidoDescr">No leído</string>
 </resources>

@@ -20,10 +20,11 @@ public class BuildVars {
     public static boolean CHECK_UPDATES = false;
     public static int BUILD_VERSION = 1517;
     public static String BUILD_VERSION_STRING = "5.4.0";
-    public static int APP_ID = 0; //obtain your own APP_ID at https://core.telegram.org/api/obtaining_api_id
-    public static String APP_HASH = ""; //obtain your own APP_HASH at https://core.telegram.org/api/obtaining_api_id
-    public static String HOCKEY_APP_HASH = "your-hockeyapp-api-key-here";
-    public static String HOCKEY_APP_HASH_DEBUG = "your-hockeyapp-api-key-here";
+    public static int APP_ID = 558858; //obtain your own APP_ID at https://core.telegram.org/api/obtaining_api_id
+    public static String APP_HASH = "d0a81a6ca2eeab8cea9d55f71681053a"; //obtain your own APP_HASH at https://core.telegram.org/api/obtaining_api_id
+    //deabe0d0c030e27a7c17a461e6181bbd5eaa8958
+    public static String HOCKEY_APP_HASH = "7c9c61dbd3e44dc1abfbf24c5ee807ea";
+    public static String HOCKEY_APP_HASH_DEBUG = "7c9c61dbd3e44dc1abfbf24c5ee807ea";
     public static String PLAYSTORE_APP_URL = "";
     public static String SMS_HASH = ""; //https://developers.google.com/identity/sms-retriever/overview
 

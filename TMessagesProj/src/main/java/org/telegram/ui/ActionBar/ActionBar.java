@@ -32,6 +32,7 @@ import android.widget.ImageView;
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.BuildVars;
 import org.telegram.messenger.LocaleController;
+import org.telegram.messenger.R;
 import org.telegram.ui.Components.FireworksEffect;
 import org.telegram.ui.Components.LayoutHelper;
 import org.telegram.ui.Components.SnowflakesEffect;
@@ -120,6 +121,14 @@ public class ActionBar extends FrameLayout {
                 actionBarMenuOnItemClick.onItemClick(-1);
             }
         });
+        backButtonImageView.setContentDescription(LocaleController.getString("VolverDescr", R.string.VolverDescr));
+    }
+
+    //Se crea una clase para dar el valor al botón de "navegación" en vez de volver atrás;
+    public void setBackButtonContentDescription(CharSequence description) {
+        if (backButtonImageView != null) {
+            backButtonImageView.setContentDescription(description);
+        }
     }
 
     public void setBackButtonDrawable(Drawable drawable) {

@@ -2545,4 +2545,19 @@
     <string name="formatterDay12H">h:mm a</string>
     <string name="formatDateAtTime">%1$s a las %2$s</string>
     <string name="formatDateScheduleDay">EEE d MMM</string>
+
+    <string name="GrupoDescr">Grupo</string>
+    <string name="CanalDescr">Canal</string>
+    <string name="ChatSecretoDescr">Chat secreto</string>
+    <string name="EnviadoDescr">Enviado %s</string>
+    <string name="RecibidoDescr">Recibido %s</string>
+    <string name="VolverDescr">Volver atrás</string>
+    <string name="MenuNavDescr">Abrir menú de navegación</string>
+    <string name="MasOpDescr">Más opciones</string>
+    <string name="EmoticonoDescr">Emojis, stickers, y GIFs</string>
+    <string name="AdjuntarDescr">Adjuntar archivos</string>
+    <string name="MostrarCuentaDescr">Mostrar cuentas</string>
+    <string name="OcultarCuentaDescr">Ocultar cuentas</string>
+    <string name="LeidoDescr">Leído</string>
+    <string name="NoLeidoDescr">No leído</string>
 </resources>
