@@ -1,5 +1,6 @@
 MY_LOCAL_PATH := $(call my-dir)
 LOCAL_PATH := $(MY_LOCAL_PATH)
+LOCAL_SHORT_COMMANDS := true
 
 LOCAL_MODULE    := avutil 
 
