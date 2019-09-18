@@ -246,7 +246,7 @@ android {
         variant.outputs.all { output ->
             output.processManifest.doLast {
                 def abiVersion = variant.productFlavors.get(0).abiVersionCode
-                String manifestPath = new File(output.processManifest.manifestOutputDirectory.get().asFile, "AndroidManifest.xml")
+                String manifestPath = new File(output.processManifest.manifestOutputDirectory.get().asFile, "AndroidManifest.xml") //Error gradle
                 def manifestContent = file(manifestPath).getText()
                 manifestContent = manifestContent.replace(String.format('android:versionCode="%d"', defaultConfig.versionCode), String.format('android:versionCode="%s"', defaultConfig.versionCode * 10 + abiVersion))
                 file(manifestPath).write(manifestContent)
