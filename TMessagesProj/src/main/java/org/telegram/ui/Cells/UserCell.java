@@ -15,6 +15,7 @@ import android.graphics.PorterDuffColorFilter;
 import android.graphics.Typeface;
 import android.util.TypedValue;
 import android.view.Gravity;
+import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -430,5 +431,16 @@ public class UserCell extends FrameLayout {
     @Override
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo info) {
         super.onInitializeAccessibilityNodeInfo(info);
+        info.addAction(AccessibilityNodeInfo.ACTION_CLICK);
+        info.addAction(AccessibilityNodeInfo.ACTION_LONG_CLICK);
+    }
+
+    //Se llena la información del evento de pulsación
+    @Override
+    public void onPopulateAccessibilityEvent(AccessibilityEvent event) {
+        super.onPopulateAccessibilityEvent(event);
+        StringBuilder lector = new StringBuilder();
+        lector.append(lastName);
+        event.setContentDescription(lector.toString());
     }
 }

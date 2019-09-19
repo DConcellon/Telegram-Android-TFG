@@ -44,6 +44,8 @@ import android.view.SoundEffectConstants;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStructure;
+import android.view.accessibility.AccessibilityEvent;
+import android.view.accessibility.AccessibilityNodeInfo;
 
 import org.telegram.PhoneFormat.PhoneFormat;
 import org.telegram.messenger.AndroidUtilities;
@@ -8245,4 +8247,23 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
         return layoutHeight;
     }
 
+    @Override
+    public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo info) {
+        super.onInitializeAccessibilityNodeInfo(info);
+        //Se añaden las acciones de aceso y de opciones (doble pulsación)
+        info.addAction(AccessibilityNodeInfo.ACTION_CLICK);
+        info.addAction(AccessibilityNodeInfo.ACTION_LONG_CLICK);
+    }
+
+
+    //Se llena la información del evento de pulsación
+    @Override
+    public void onPopulateAccessibilityEvent(AccessibilityEvent event) {
+        super.onPopulateAccessibilityEvent(event);
+        StringBuilder lector = new StringBuilder();
+        lector.append(UserObject.getUserName(currentUser));
+        lector.append(". ");
+        lector.append(currentMessageObject.messageText);
+        event.setContentDescription(lector.toString());
+    }
 }
